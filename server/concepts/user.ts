@@ -15,7 +15,7 @@ export default class UserConcept {
     // Hint: check out this.users.readOne
     const user = await this.users.readOne({ _id });
     if (user === null) {
-      throw new NotFoundError("There is no user of this id!");
+      throw new NotFoundError(`There is no user of the id: ${_id}!`);
     }
     return user;
   }

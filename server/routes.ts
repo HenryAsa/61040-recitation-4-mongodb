@@ -68,7 +68,7 @@ class Routes {
     const user = await this.getSessionUser(session);
     const postToDelete = await Post.posts.readOne({ _id });
     if (postToDelete === null) {
-      throw new BadValuesError("This post does not have an author");
+      throw new BadValuesError(`There is no post with the id: ${_id}`);
     }
     if (postToDelete?.author === user?._id) {
       return await Post.delete(_id);
